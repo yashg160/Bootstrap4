@@ -37,8 +37,8 @@
 
                 </ul>
                 <span class="navbar-text">
-                    <a href="" data-toggle="modal" data-target="#loginModal">
-                        <span class="fa fa-sign-in"></span>
+                    <a id="loginModalButton" href="javascript:void(0)">
+                        <span class="fa fa-sign-in" ></span>
                         Login
                     </a>
                 </span>
@@ -52,7 +52,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login</h4>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button id="closeLogin" type="button" class="close">
                         &times;
                     </button>
                 </div>
@@ -91,7 +91,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Reserve a Table</h4>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button id="closeReserve" type="button" class="close">
                         &times;
                     </button>
                 </div>
@@ -100,7 +100,7 @@
                     <form>
                     <div class="form-group row">
                         <label for="guests" class="col-md-2 col-form-label">Number of Guests</label>
-                        <div class="col-md-10">
+                        <div class="col-md-10 align-self-center">
                             <label class="radio-inline"><input type="radio" name="optradio" checked><strong> 1 </strong></label>
                             <label class="radio-inline"><input type="radio" name="optradio" checked><strong> 2 </strong></label>
                             <label class="radio-inline"><input type="radio" name="optradio" checked><strong> 3 </strong></label>
@@ -112,13 +112,13 @@
 
                     <div class="form-group row">
                         <label for="section" class="col-md-2 col-form-label">Section</label>
-                        <div class="col-md-4 btn-group" role="group">
-                            <button class="btn btn-success active">Non-Smoking</button>
+                        <div class="col-md-6 btn-group" role="group">
+                            <button class="btn btn-success">Non-Smoking</button>
                             <button class="btn btn-danger">Smoking</button>
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row align-items-center">
                         <label for="date-time" class="col-md-2">Date and Time</label>
                        
                             <div class="col-12 col-md-4">
@@ -131,11 +131,11 @@
                     </div>
 
                     <div class="form-group row">
-                        <div class="col-md-2 offset-2">
-                            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <div class="col-3 offset-2">
+                            <button class="btn btn-secondary col" data-dismiss="modal">Cancel</button>
                         </div>
-                        <div>
-                            <button class="btn btn-primary" data-dismiss="modal">Reserve</button>
+                        <div class="col-3">
+                            <button class="btn btn-primary col" data-dismiss="modal">Reserve</button>
                         </div>
                     </div>
                 </form>
@@ -156,9 +156,9 @@
                 </div>
 
                 <div class="col-12 col-sm align-self-center">
-                    <a href="" data-toggle="modal" data-target="#reserveModal">
-                        <button class="btn btn-warning"><strong>Reserve Table</strong></button>
-                    </a>                
+                    
+                        <button id="reserveTableButton" class="btn btn-warning"><strong>Reserve Table</strong></button>
+                                  
                 </div>
             </div>
         </div>
@@ -362,7 +362,24 @@
                     $('#carouselButton').children('span').addClass('fa-pause');
                 }         
             });
+
+            $('#reserveTableButton').click(function(){
+                $('#reserveModal').modal('show');
+            });
+
+            $('#loginModalButton').click(function(){
+                $('#loginModal').modal('show');
+            });
+
+            $('#closeReserve').click(function(){
+                $('#reserveModal').modal('hide');
+            });
+
+            $('#closeLogin').click(function(){
+                $('#loginModal').modal('hide');
+            });
         });
+
     </script>
 
 </body>
